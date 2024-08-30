@@ -1,0 +1,378 @@
+:root{
+    --primario: #fff;
+    --letra: #212121;
+    --secundario: #03c0b7;
+    --terciario: #b94d04;
+    --gris: #a7a7a7;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Play', sans-serif;
+}
+
+.templateGrid{
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template:
+        'head head nav' 3rem
+        'section section section' 20rem
+        'main main main' 1fr
+        'foot foot foot' 6rem;
+}
+
+.layout-header {
+    background-color: var(--terciario);
+    grid-area: head;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.layout-header i {
+    font-size: 2rem;
+    margin-right: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--letra);
+    padding: 3px 0px 10px 0px;
+    margin: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.menu {
+    grid-area: nav;
+    background-color: var(--terciario);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+}
+
+.menu button{
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    background-color: var(--terciario);
+
+    animation: spin 1ms linear infinite;
+}
+
+
+@keyframes spin {
+    0%{
+        transform: rotate(0deg);
+    }
+
+    50%{
+        transform: rotate(180deg);
+    }
+
+    100%{
+        transform: rotate(1080deg);
+    }
+}
+
+
+.layout-nav {
+    display: none;
+}
+
+.section-conteiner{
+    position:absolute;    
+    background-color: rgba(0, 0,0, .1);
+    width: 100%;
+    height: 100%;
+    color: var(--primario);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.ubicacion {
+    display: flex;
+    align-items: flex-end;
+    padding-top: 1rem;
+}
+
+.ubicacion i {
+    font-size: 3rem;
+}
+
+.boton {
+    background-color: var(--secundario);
+    color: var(--primario);
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    font-size: 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: .5rem;
+    width: 60%;
+    text-align: center;
+    border: none;
+
+    transition: 2s ease-in-out;
+    animation-name: color;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+}
+
+@keyframes color {
+    from {background-color: var(--secundario)} 
+    to {background-color: var(--terciario)}
+}
+
+.boton:hover{
+    transform: scale(1.5);
+}
+.layout-section{
+    grid-area: section;
+    background-image: url("../imgs/vapeshop.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    max-width: 100%;
+    position: relative;
+}
+
+.layout-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-area: main;
+    padding: 1rem;
+    background-color: var(--primario);
+}
+
+.primary-main{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: var(--secundario);
+    margin: 1rem 0 1rem 0;
+    color: var(--primario);
+}
+.container {
+    grid-template-columns: 1fr;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.card {
+    border: 1px solid var(--gris);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.card:nth-child(n+2) {
+    display: none;
+}
+
+.card h3 {
+    margin-top: 1rem;
+    font-size: 1.25rem;
+}
+
+img {
+    max-width: 100%;
+    object-fit: cover;
+    object-position: center;
+    margin: 10px;
+}
+
+.butonFrame {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.Second-button {
+    padding: 5px;
+    width: 100%;
+    background-color: var(--secundario);
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.Second-button:hover {
+    background-color: var(--terciario);
+}
+
+.layout-footer {
+    background-color: var(--secundario);
+    color: var(--letra);
+    grid-area: foot;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.icons-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    margin-top: 1rem; 
+}
+
+.icons-footer i{
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.text-footer {
+    margin-top: 1rem;
+    font-size: 1.25rem;
+}
+
+@media (min-width: 576px) {
+    .templateGrid {
+        display: grid;
+        grid-template:
+            [header-left] 'head section section' 12rem [section-right] 
+            [nav-left] 'nav main main ' 1fr [main-right] 
+            [footer-left] 'foot  foot foot' 5rem [footer-right] 
+            / 1fr 5fr;
+    }
+
+    .layout-header{
+        background-image: url("../imgs/vapeshop.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .layout-header h1{
+        display: none;
+    }
+
+    .layout-section{
+        background-image:url("../imgs/vapebanner.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .layout-nav {
+        background-color: var(--terciario);
+        grid-area: nav;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-content: center;
+        align-items: center;
+    }
+
+    .layout-nav a{
+        padding: 2rem 0 2rem 0;
+    }
+
+    .card:nth-child(n+2) {
+        display: inline-flex;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-gap: 10px;
+    }
+
+    .card {
+        background-color: white;
+        border: 1px solid var(--gris);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 992px) {
+    .templateGrid {
+        display: grid;
+        grid-template:
+        [header-left] 'head nav nav' 5rem [section-right] 
+        [section-left] 'section section section' 12rem [section-right]
+        [nav-left] 'main main main ' 1fr [main-right] 
+        [footer-left] 'foot  foot foot' 5rem [footer-right] 
+        / 1fr 5fr;
+    }
+
+    .layout-nav {
+        background-color: var(--secundario);
+        grid-area: nav;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-content: center;
+        align-items: center;
+        padding-left: 10px;
+    }
+
+    .card:nth-child(n+3) {
+        display: none;
+    }
+
+    .layout-main {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        grid-area: main;
+        padding: 10px;
+        background-color: var(--blanco);
+    }
+
+
+    .container {
+        grid-template-rows: 1fr;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .card {
+        border: 1px solid var(--gris);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    .icons-footer {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 1rem;
+        width: 1rem;
+        height: 1rem;
+        margin-top: 1rem;
+
+    }
+}
